@@ -29,22 +29,24 @@ songs = ["XO","​drugs","Wake Up","​sex (catching feelings)", "​rock + roll
 def get_raw_lyrics():
    genius_client_access_token = str(get_gkey())
    genius = lyricsgenius.Genius(genius_client_access_token)
-   random_song_title = random.choice(songs)
-   lyrics = genius.search_song(random_song_title, "EDEN").lyrics.lower()
-   song = random_song_title.lower() + " - EDEN"
+   rand_song_title = random.choice(songs)
+   lyrics = genius.search_song(rand_song_title, "EDEN").lyrics.lower()
+   song = rand_song_title.lower() + " - EDEN"
    return lyrics, song
 def get_tweet_from(lyrics):
    lines = lyrics.split('\n')
-   for index in range(len(lines)):
-       if lines[index] == "" or "[" in lines[index]:
-           lines[index] = "XXX"
+   for i in range(len(lines)):
+       if lines[i] == "" or "[" in lines[i]:
+           lines[i] = "XXX"
    lines = [i for i in lines if i != "XXX"]
-   random_num = random.randrange(0, len(lines)-1)
-   tweet = lines[random_num] + "\n" + lines[random_num+1]
+   rand_num = random.randrange(0, len(lines)-1)
+   tweet = lines[rand_num] + "\n" + lines[rand_num+1]
    tweet = tweet.replace("\\", "")
    return tweet
 
+t = 60*60*3
 api = tweepy.API(auth)
 lyrics, song = get_raw_lyrics()
 tweet = get_tweet_from(lyrics)
 api.update_status(tweet+"\n\n"+song)
+sleep(t)

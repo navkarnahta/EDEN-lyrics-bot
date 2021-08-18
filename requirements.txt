@@ -1,0 +1,6 @@
+git+https://github.com/navkarnahta/EDEN-lyrics-bot
+dnspython
+PyNaCl
+tweepy
+lyricsgenius
+pandas

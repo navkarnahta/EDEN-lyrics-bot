@@ -7,11 +7,11 @@ autho = {'consumer_key' : 'a' ,
         'consumer_secret' : 'b',
         'key' : 'b',
         'secret' : 'c'}
-def get_tkey():
+def get_tkey(): #module to acquire the twitter consumer key,secret key, API key and API secret key from the text file
     with open("tkey.txt","r") as f:
         lines = f.read()
         return lines
-def get_gkey():
+def get_gkey(): #module to acquire the genius access token from the text file
     with open("gkey.txt","r") as f:
         lines = f.readlines()
         return lines[0].strip()
@@ -24,7 +24,7 @@ for i in autho:
 print(autho)
 auth = tweepy.OAuthHandler(autho['consumer_key'], autho['consumer_secret'])
 auth.set_access_token(autho['key'], autho['secret'])
-
+#manually added the songs to the list after searching them up using the artist.songs command
 songs = ["XO","​drugs","Wake Up","​sex (catching feelings)", "​rock + roll", "Gravity", "​crash", "Fumes", "​start//end", "Circles", "​forever//over", "​gold", "​love; not wrong (brave)", "​take care", "​wings", "​and", "​isohel", "​icarus", "Nocturne", "​falling in reverse","​float", "​wonder", "​909", "​projector","​love, death, distraction", "​wrong", "​lost//found", "​untitled", "​catch me if you can", "Interlude", "​hertz", "​nowhere else", "​just saying", "2020", "​how to sleep", "​good morning","​fomo", "????", "​about time​", "Peaked", "​rushing", "​so far so good", "02 09", "​calm down", "$treams", "​re//start", "​in", "​tides", "​static", "​out", "Amnesia", "Hey Ya", "​hello", "​running, tripping, falling (no future)", "XO (Extended)", "​all i want", "​call me back*","Dreaming About You*"]
 def get_raw_lyrics():
    genius_client_access_token = str(get_gkey())
@@ -44,7 +44,7 @@ def get_tweet_from(lyrics):
    tweet = tweet.replace("\\", "")
    return tweet
 
-t = 60*60*3
+t = 60*60*6 #setting a timer for every 6 hours 
 api = tweepy.API(auth)
 lyrics, song = get_raw_lyrics()
 tweet = get_tweet_from(lyrics)

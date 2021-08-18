@@ -1,7 +1,7 @@
-from lyricsgenius.api.public_methods import song
 import tweepy
 import random
 import lyricsgenius
+import time
 
 autho = {'consumer_key' : 'a' , 
         'consumer_secret' : 'b',
@@ -49,4 +49,4 @@ api = tweepy.API(auth)
 lyrics, song = get_raw_lyrics()
 tweet = get_tweet_from(lyrics)
 api.update_status(tweet+"\n\n"+song)
-sleep(t)
+time.sleep(t)

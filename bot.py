@@ -1,12 +1,11 @@
 import tweepy
 import random
 import lyricsgenius
-import time
 
 autho = {'consumer_key' : 'a' , 
-        'consumer_secret' : 'b',
-        'key' : 'b',
-        'secret' : 'c'}
+         'consumer_secret' : 'b',
+         'key' : 'b',
+         'secret' : 'c'}
 def get_tkey(): #module to acquire the twitter consumer key,secret key, API key and API secret key from the text file
     with open("tkey.txt","r") as f:
         lines = f.read()
@@ -44,9 +43,7 @@ def get_tweet_from(lyrics):
    tweet = tweet.replace("\\", "")
    return tweet
 
-t = 60*60*6 #setting a timer for every 6 hours 
 api = tweepy.API(auth)
 lyrics, song = get_raw_lyrics()
 tweet = get_tweet_from(lyrics)
 api.update_status(tweet+"\n\n"+song)
-time.sleep(t)

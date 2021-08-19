@@ -20,7 +20,6 @@ c=0
 for i in autho:
     autho.update({i:str(lines[c])})
     c+=1
-print(autho)
 auth = tweepy.OAuthHandler(autho['consumer_key'], autho['consumer_secret'])
 auth.set_access_token(autho['key'], autho['secret'])
 #manually added the songs to the list after searching them up using the artist.songs command

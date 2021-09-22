@@ -31,10 +31,9 @@ def get_tweet_from(lyrics):
    lines = [i for i in lines if i != "XXX"]
    rand_num = random.randrange(0, len(lines)-1)
    linep1 = lines[rand_num+1]
-   if linep1.find("embedshare urlcopyembedcopy")==True:
-       linep1.replace("embedshare urlcopyembedcopy","")
+   if linep1.find(r"[0-9]*URLCopyEmbedCopy")==True:
+       linep1.replace(r"[0-9]*embedshare urlcopyembedcopy","")
    tweet = lines[rand_num] + "\n" + linep1 + " "
-   tweet = lines[rand_num] + "\n" + lines[rand_num+1]
    tweet = tweet.replace("\\", "")
    return tweet
 
@@ -59,4 +58,4 @@ auth = tweepy.OAuthHandler(autho['consumer_key'], autho['consumer_secret'])
 auth.set_access_token(autho['key'], autho['secret'])
 songs = ["XO","​drugs","Wake Up","​sex (catching feelings)", "​rock + roll", "Gravity", "​crash", "Fumes", "​start//end", "Circles", "​forever//over", "​gold", "​love; not wrong (brave)", "​take care", "​wings", "​and", "​isohel", "​icarus", "Nocturne", "​falling in reverse","​float", "​wonder", "​909", "​projector","​love, death, distraction", "​wrong", "​lost//found", "​untitled", "​catch me if you can", "Interlude", "​hertz", "​nowhere else", "​just saying", "2020", "​how to sleep", "​good morning","​fomo", "​about time​", "Peaked", "​rushing", "​so far so good", "02 09", "​calm down", "$treams", "​re//start", "​in", "​tides", "​static", "​out", "Amnesia", "Hey Ya", "​hello", "​running, tripping, falling (no future)", "XO (Extended)", "​all i want", "​call me back*","Dreaming About You*"]
 tweetIt()
-time.sleep(16200)
+time.sleep(86400)

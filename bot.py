@@ -58,4 +58,4 @@ auth = tweepy.OAuthHandler(autho['consumer_key'], autho['consumer_secret'])
 auth.set_access_token(autho['key'], autho['secret'])
 songs = ["XO","​drugs","Wake Up","​sex (catching feelings)", "​rock + roll", "Gravity", "​crash", "Fumes", "​start//end", "Circles", "​forever//over", "​gold", "​love; not wrong (brave)", "​take care", "​wings", "​and", "​isohel", "​icarus", "Nocturne", "​falling in reverse","​float", "​wonder", "​909", "​projector","​love, death, distraction", "​wrong", "​lost//found", "​untitled", "​catch me if you can", "Interlude", "​hertz", "​nowhere else", "​just saying", "2020", "​how to sleep", "​good morning","​fomo", "​about time​", "Peaked", "​rushing", "​so far so good", "02 09", "​calm down", "$treams", "​re//start", "​in", "​tides", "​static", "​out", "Amnesia", "Hey Ya", "​hello", "​running, tripping, falling (no future)", "XO (Extended)", "​all i want", "​call me back*","Dreaming About You*"]
 tweetIt()
-time.sleep(86400)
+time.sleep(60*60*5)

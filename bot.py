@@ -40,6 +40,8 @@ def get_tweet_from(lyrics):
     if linep1.find(r"[0-9]*embedshare URLCopyEmbedCopy") == True:
         linep1.replace(r"[0-100]*embedshare URLCopyEmbedCopy"," ")
     tweet = lines[rand_num] + "\n" + linep1 + " "
+    if tweet.find('''"''')== True:
+        tweet.replace(''''"''',''' ''')
     tweet = tweet.replace("\\", "")
     return tweet
 

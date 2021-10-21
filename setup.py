@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='EDEN-lyrics-bot',
-    version='1.0.2',
+    version='1.2.0',
     description='Lyrics Generation Bot',
     author='Navkar Nahta',
     author_email='navkar.nahta@gmail.com',
